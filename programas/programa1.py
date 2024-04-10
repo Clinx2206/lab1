@@ -3,10 +3,20 @@ import re
 import sys
 
 def prog(texto):
-	match = re.search(r'@(.*)!\n', texto)
-	ret = "";
+	match = re.findall(r'@(([a-z]|[0-9]|[A-Z])*)', texto)
+	matchUnicos = []
 	for i in match:
-		ret = ret + ":1" + f"{i}" + "\n"
+		if i not in matchUnicos:
+			matchUnicos.append(i)
+	
+	ret = ""
+	counter = 1
+	for i in matchUnicos:
+		counter += 1
+		ret = ret + f"{i[0]}"
+		if counter <= len(matchUnicos):
+			ret = ret + "\n"
+
 	return ret
 
 if __name__ == '__main__':
