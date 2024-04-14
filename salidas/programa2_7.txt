@@ -1,4 +1,4 @@
-devJourney: 1
+devJourney: 2
 earlyCoder: 1
 nightOwl: 1
 agileAdvocate: 1

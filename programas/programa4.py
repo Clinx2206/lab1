@@ -3,19 +3,12 @@ import re
 import sys
 
 def prog(texto):
-	match = re.findall(r'"user": "((.)*)",', texto)
-	vistos = dict();
-	ret = "";
-	for i in match:
-		x = f"{i[0]}" 
-		if vistos.get(x) == None:
-			vistos[x] = 1;
-		else:
-			vistos[x] = vistos[x] + 1
-	for x in vistos:
-		ret = ret + x + ": " + str(vistos[x]) + "\n"
-	ret = ret.removesuffix('\n')
-	return ret
+    match = re.findall(r'#(#*)(.*)\\n', texto, )
+    ret = ""
+    for x in match:
+        ret = ret + f"{x[1]}" + '\n'
+    ret = ret.removesuffix('\n')
+    return ret
 
 if __name__ == '__main__':
 	entrada = sys.argv[1]  # archivo entrada (param)
